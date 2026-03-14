@@ -18,6 +18,14 @@ function Login() {
     setError("");
     setLoading(true);
 
+    // Development bypass
+    if (email === "admin@estateflow.com" && password === "12345678") {
+      setLoading(false);
+      navigate("/admin");
+      return;
+    }
+    // only for development purpose !! 
+
     const { data, error: authError } = await supabase.auth.signInWithPassword({
       email,
       password,
