@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import AgentSideAndTopPanel from "./AgentSideandTopPanel";
 
 function AgentDashboard() {
   return (
@@ -33,104 +33,6 @@ function AgentDashboard() {
           color: var(--text-slate-900);
         }
 
-        /* Sidebar */
-        .sidebar {
-          width: 256px; /* w-64 */
-          flex-shrink: 0;
-          border-right: 1px solid var(--border-slate-200);
-          background-color: var(--bg-white);
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-        }
-
-        .sidebar-inner {
-          padding: 24px; /* p-6 */
-          display: flex;
-          flex-direction: column;
-          gap: 32px; /* gap-8 */
-          height: 100%;
-        }
-
-        /* Brand */
-        .brand {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-        }
-        .brand-icon-box {
-          background-color: var(--color-primary);
-          width: 40px;
-          height: 40px;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-        }
-        .brand-title {
-          font-size: 18px;
-          font-weight: 700;
-          line-height: 1;
-          letter-spacing: -0.025em;
-        }
-        .brand-subtitle {
-          color: var(--text-slate-500);
-          font-size: 12px;
-          font-weight: 500;
-          margin-top: 2px;
-        }
-
-        /* Nav Links */
-        .nav-menu {
-          display: flex;
-          flex-direction: column;
-          gap: 4px; /* gap-1 */
-          flex-grow: 1;
-          overflow-y: auto;
-        }
-        .nav-item {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          padding: 6px 10px;
-          border-radius: 8px;
-          color: var(--text-slate-600);
-          cursor: pointer;
-          text-decoration: none;
-          transition: background-color 0.2s;
-        }
-        .nav-item:hover {
-          background-color: #f1f5f9;
-        }
-        .nav-item.active {
-          background-color: rgba(19, 91, 236, 0.1);
-          color: var(--color-primary);
-        }
-        .nav-item p {
-          font-size: 13px;
-          font-weight: 500;
-          margin: 0;
-        }
-        .nav-item.active p {
-          font-weight: 600;
-        }
-
-        /* Bottom Nav */
-        .bottom-nav {
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-          border-top: 1px solid #f1f5f9;
-          padding-top: 16px;
-        }
-        .nav-item.logout {
-          color: #ef4444; /* text-red-500 */
-        }
-        .nav-item.logout:hover {
-          background-color: #fef2f2; /* hover:bg-red-50 */
-        }
-
         /* Main Content Area */
         .main-col {
           flex: 1;
@@ -140,136 +42,11 @@ function AgentDashboard() {
           overflow: hidden;
         }
 
-        /* Header */
-        .top-header {
-          height: 64px; /* h-16 */
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0 32px; /* px-8 */
-          background-color: var(--bg-white);
-          border-bottom: 1px solid var(--border-slate-200);
-          z-index: 10;
-        }
-
-        /* Search */
-        .search-container {
-          display: flex;
-          align-items: center;
-          width: 384px; /* w-96 */
-          position: relative;
-        }
-        .search-icon {
-          position: absolute;
-          left: 12px;
-          color: #94a3b8; /* text-slate-400 */
-        }
-        .search-input {
-          width: 100%;
-          padding: 8px 16px 8px 40px;
-          background-color: #f1f5f9; /* bg-slate-100 */
-          border: none;
-          border-radius: 8px;
-          font-size: 14px;
-          outline: none;
-          transition: box-shadow 0.2s;
-        }
-        .search-input:focus {
-          box-shadow: 0 0 0 2px rgba(19, 91, 236, 0.5); /* focus:ring-primary/50 */
-        }
-
-        /* Header Actions */
-        .header-right {
-          display: flex;
-          align-items: center;
-          gap: 24px;
-        }
-        .icon-actions {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .icon-btn {
-          position: relative;
-          padding: 8px;
-          color: var(--text-slate-500);
-          background: none;
-          border: none;
-          border-radius: 8px;
-          cursor: pointer;
-          transition: background-color 0.2s;
-        }
-        .icon-btn:hover {
-          background-color: #f1f5f9;
-        }
-        .notification-dot {
-          position: absolute;
-          top: 8px;
-          right: 8px;
-          width: 8px;
-          height: 8px;
-          background-color: #ef4444;
-          border-radius: 50%;
-          border: 2px solid var(--bg-white);
-        }
-
-        /* Profile */
-        .profile-section {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          border-left: 1px solid var(--border-slate-200);
-          padding-left: 24px;
-        }
-        .profile-info {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-        }
-        .profile-name {
-          font-size: 14px;
-          font-weight: 700;
-        }
-        .profile-role {
-          font-size: 12px;
-          color: var(--color-primary);
-          font-weight: 500;
-        }
-        .avatar-container {
-          position: relative;
-        }
-        .avatar-box {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background-color: rgba(19, 91, 236, 0.2);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          border: 2px solid rgba(19, 91, 236, 0.1);
-        }
-        .avatar-box img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .status-dot {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          width: 12px;
-          height: 12px;
-          background-color: #22c55e; /* bg-green-500 */
-          border: 2px solid var(--bg-white);
-          border-radius: 50%;
-        }
-
         /* Page Content Area */
         .page-content {
           flex: 1;
           overflow-y: auto;
-          padding: 32px; /* p-8 */
+          padding: 32px;
         }
 
         /* Page Header */
@@ -277,11 +54,11 @@ function AgentDashboard() {
           display: flex;
           justify-content: space-between;
           align-items: flex-end;
-          margin-bottom: 32px; /* mb-8 */
+          margin-bottom: 32px;
         }
         .page-title {
-          font-size: 30px; /* text-3xl */
-          font-weight: 900; /* font-black */
+          font-size: 30px;
+          font-weight: 900;
           letter-spacing: -0.025em;
         }
         .page-subtitle {
@@ -308,7 +85,7 @@ function AgentDashboard() {
           transition: background-color 0.2s;
         }
         .btn-outline:hover {
-          background-color: #f8fafc; /* hover:bg-slate-50 */
+          background-color: #f8fafc;
         }
         .btn-primary {
           display: flex;
@@ -335,7 +112,7 @@ function AgentDashboard() {
         .stats-grid {
           display: grid;
           grid-template-columns: repeat(1, 1fr);
-          gap: 16px; /* gap-4 */
+          gap: 16px;
           margin-bottom: 32px;
         }
         @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -343,10 +120,10 @@ function AgentDashboard() {
 
         .stat-card {
           background-color: var(--bg-white);
-          padding: 20px; /* p-5 */
-          border-radius: 12px; /* rounded-xl */
+          padding: 20px;
+          border-radius: 12px;
           border: 1px solid var(--border-slate-200);
-          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         }
         .stat-header {
           display: flex;
@@ -372,8 +149,8 @@ function AgentDashboard() {
           letter-spacing: 0.05em;
         }
         .stat-value {
-          font-size: 24px; /* text-2xl */
-          font-weight: 900; /* font-black */
+          font-size: 24px;
+          font-weight: 900;
           margin-top: 4px;
         }
 
@@ -387,13 +164,13 @@ function AgentDashboard() {
 
         .widget-card {
           background-color: var(--bg-white);
-          padding: 24px; /* p-6 */
-          border-radius: 12px; /* rounded-xl */
+          padding: 24px;
+          border-radius: 12px;
           border: 1px solid var(--border-slate-200);
           box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         }
 
-        /* Monthly Sales Bar Chart (Simulated) */
+        /* Monthly Sales Bar Chart */
         .monthly-sales-col {
           grid-column: span 1;
         }
@@ -406,7 +183,7 @@ function AgentDashboard() {
           margin-bottom: 24px;
         }
         .widget-title {
-          font-size: 18px; /* text-lg */
+          font-size: 18px;
           font-weight: 700;
         }
         .widget-select {
@@ -421,11 +198,11 @@ function AgentDashboard() {
         }
 
         .bar-chart-container {
-          height: 256px; /* h-64 */
+          height: 256px;
           display: flex;
           align-items: flex-end;
           justify-content: space-between;
-          gap: 16px; /* gap-4 */
+          gap: 16px;
           padding: 16px 8px 0;
         }
         .bar-col {
@@ -441,7 +218,7 @@ function AgentDashboard() {
           background-color: #f1f5f9;
           border-radius: 8px 8px 0 0;
           position: relative;
-          height: 160px; /* h-40 */
+          height: 160px;
         }
         .bar-fill {
           position: absolute;
@@ -480,17 +257,17 @@ function AgentDashboard() {
           justify-content: center;
         }
         .donut-svg {
-          width: 192px; /* size-48 */
+          width: 192px;
           height: 192px;
           transform: rotate(-90deg);
         }
         .donut-bg {
-          color: #f1f5f9; /* text-slate-100 */
+          color: #f1f5f9;
         }
         .donut-progress {
           color: var(--color-primary);
           stroke-dasharray: 502.4px;
-          stroke-dashoffset: 361.7px; /* roughly 28% */
+          stroke-dashoffset: 361.7px;
         }
         .donut-center {
           position: absolute;
@@ -501,8 +278,8 @@ function AgentDashboard() {
           justify-content: center;
         }
         .donut-value {
-          font-size: 36px; /* text-4xl */
-          font-weight: 900; /* font-black */
+          font-size: 36px;
+          font-weight: 900;
         }
         .donut-label {
           font-size: 12px;
@@ -513,7 +290,7 @@ function AgentDashboard() {
           margin-top: 4px;
         }
         .conversion-stats {
-          margin-top: 32px; /* mt-8 */
+          margin-top: 32px;
           text-align: center;
         }
         .conversion-text {
@@ -564,7 +341,7 @@ function AgentDashboard() {
           color: var(--text-slate-600);
         }
         .chart-area {
-          height: 192px; /* h-48 */
+          height: 192px;
           position: relative;
           overflow: hidden;
           display: flex;
@@ -593,7 +370,7 @@ function AgentDashboard() {
         .x-label {
           font-size: 12px;
           font-weight: 500;
-          color: #94a3b8; /* text-slate-400 */
+          color: #94a3b8;
         }
         .x-label.active {
           font-weight: 700;
@@ -635,7 +412,7 @@ function AgentDashboard() {
         }
         .activity-table thead tr {
           border-bottom: 1px solid #f1f5f9;
-          background-color: rgba(248, 250, 252, 0.5); /* bg-slate-50/50 */
+          background-color: rgba(248, 250, 252, 0.5);
         }
         .activity-table th {
           padding: 16px 24px;
@@ -699,111 +476,13 @@ function AgentDashboard() {
       `}</style>
 
       <div className="layout-wrapper">
-
-        {/* SIDE NAV */}
-        <aside className="sidebar">
-          <div className="sidebar-inner">
-            {/* Brand Logo */}
-            <div className="brand">
-              <div className="brand-icon-box">
-                <span className="material-symbols-outlined filled-icon" style={{ fontSize: '24px' }}>domain</span>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <h1 className="brand-title">EstateFlow</h1>
-                <p className="brand-subtitle">Enterprise CRM</p>
-              </div>
-            </div>
-
-            {/* Nav Links */}
-            <nav className="nav-menu">
-              <div className="nav-item active">
-                <span className="material-icons">dashboard</span>
-                <p>Dashboard Overview</p>
-              </div>
-              <Link to="/myleads" className="nav-item">
-                <span className="material-icons">person_search</span>
-                <p>My Leads</p>
-              </Link>
-              <div className="nav-item">
-                <span className="material-icons">house</span>
-                <p>Property Management</p>
-              </div>
-              <div className="nav-item">
-                <span className="material-icons">event_available</span>
-                <p>Site Visits</p>
-              </div>
-              <div className="nav-item">
-                <span className="material-icons">handshake</span>
-                <p>Deals</p>
-              </div>
-              <div className="nav-item">
-                <span className="material-icons">groups</span>
-                <p>Clients</p>
-              </div>
-              <div className="nav-item">
-                <span className="material-icons">notification_important</span>
-                <p>Tasks &amp; Follow-ups</p>
-              </div>
-            </nav>
-
-            {/* Bottom Nav */}
-            <div className="bottom-nav">
-              <div className="nav-item">
-                <span className="material-icons">settings</span>
-                <p>Settings</p>
-              </div>
-              <div className="nav-item logout">
-                <span className="material-icons">logout</span>
-                <p>Logout</p>
-              </div>
-            </div>
-          </div>
-        </aside>
-
+        {/* SHARED SIDEBAR AND TOP PANEL */}
+        <AgentSideAndTopPanel />
 
         {/* MAIN CONTENT */}
         <main className="main-col">
-
-          {/* Header */}
-          <header className="top-header">
-            <div className="search-container">
-              <span className="material-symbols-outlined search-icon">search</span>
-              <input
-                className="search-input"
-                placeholder="Search leads, deals or properties..."
-                type="text"
-              />
-            </div>
-
-            <div className="header-right">
-              <div className="icon-actions">
-                <button className="icon-btn">
-                  <span className="material-symbols-outlined">notifications</span>
-                  <span className="notification-dot"></span>
-                </button>
-                <button className="icon-btn">
-                  <span className="material-symbols-outlined">mail</span>
-                </button>
-              </div>
-
-              <div className="profile-section">
-                <div className="profile-info">
-                  <p className="profile-name">Vikram Malhotra</p>
-                  <p className="profile-role">Senior Sales Agent</p>
-                </div>
-                <div className="avatar-container">
-                  <div className="avatar-box">
-                    <img alt="Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo6jX3PG4qkINm9NA2Oxa7Q_dcmNxXN6pa9B10OD9iPZjkokwI9WwSlTLROI02GcE-KSxnPtAGUrznFuwaSSmL2Q3bqrIJ2B1mNo3dNrP8tLBVG7uB4hZbNk1nOKj0b36TnLyYK7Lvh6EMl7HWbMBOR7DL1-3TLA3WZZurcVA9ylCKMHE8Jh-Vf7XSwikEfoqaRJFQpLOsM1_kBPTUDiBiuaWhAtKUWSpdkfotKGKRsH27eKiAKdJvgRYC1s3jPxlANq8BERAgdjjS" />
-                  </div>
-                  <span className="status-dot"></span>
-                </div>
-              </div>
-            </div>
-          </header>
-
           {/* Page Content */}
           <div className="page-content">
-
             <div className="page-header">
               <div>
                 <h2 className="page-title">Agent Dashboard</h2>
@@ -886,7 +565,6 @@ function AgentDashboard() {
 
             {/* Analytics Grid */}
             <div className="analytics-grid">
-
               {/* Sales Performance Bar Chart */}
               <div className="widget-card monthly-sales-col">
                 <div className="widget-header">
@@ -899,7 +577,6 @@ function AgentDashboard() {
                   </select>
                 </div>
                 <div className="bar-chart-container">
-                  {/* Simulated Bars */}
                   <div className="bar-col group">
                     <div className="bar-track">
                       <div className="bar-fill" style={{ height: '75%' }}></div>
@@ -942,7 +619,6 @@ function AgentDashboard() {
               {/* Conversion Rate Donut */}
               <div className="widget-card conversion-col">
                 <h3 className="widget-title" style={{ marginBottom: '24px' }}>Lead Conversion</h3>
-
                 <div className="donut-wrapper">
                   <div className="donut-chart">
                     <svg className="donut-svg">
@@ -954,7 +630,6 @@ function AgentDashboard() {
                       <span className="donut-label">Efficiency</span>
                     </div>
                   </div>
-
                   <div className="conversion-stats">
                     <p className="conversion-text">Total Leads processed this month: <span>142</span></p>
                     <div className="conversion-trend">
@@ -967,7 +642,7 @@ function AgentDashboard() {
                 </div>
               </div>
 
-              {/* Deals Closed Trend (Line Chart) */}
+              {/* Deals Closed Trend */}
               <div className="widget-card line-chart-col">
                 <div className="widget-header">
                   <div>
@@ -985,7 +660,6 @@ function AgentDashboard() {
                     </div>
                   </div>
                 </div>
-
                 <div className="chart-area">
                   <div className="grid-lines"></div>
                   <svg className="svg-container" viewBox="0 0 1000 200" preserveAspectRatio="none">
@@ -1024,7 +698,6 @@ function AgentDashboard() {
                   <span className="x-label active">Nov</span>
                 </div>
               </div>
-
             </div>
 
             {/* Recent Activities Table */}
@@ -1033,7 +706,6 @@ function AgentDashboard() {
                 <h3 className="widget-title">Recent Activities</h3>
                 <button className="view-all">View All</button>
               </div>
-
               <div className="table-container">
                 <table className="activity-table">
                   <thead>
@@ -1109,7 +781,6 @@ function AgentDashboard() {
                 </table>
               </div>
             </div>
-
           </div>
         </main>
       </div>

@@ -64,9 +64,9 @@ function Login() {
       return;
     }
 
-    if (upperRole === "ADMIN") navigate("/admin");
-    else if (upperRole === "AGENT") navigate("/agent");
-    else if (upperRole === "BUILDER") navigate("/builder");
+    if (upperRole === "ADMIN") navigate("/admin/AdminDashboard");
+    else if (upperRole === "AGENT") navigate("/Agent/AgentDashboard");
+    else if (upperRole === "BUILDER") navigate("/builder/BuilderDashboard");
   };
 
   return (
