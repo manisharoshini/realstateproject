@@ -1,12 +1,14 @@
 import React from "react";
 import AgentSideAndTopPanel from "./AgentSideandTopPanel";
 
+
 function AgentDashboard() {
   return (
     <div className="agent-dashboard">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+        @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
         .agent-dashboard {
           font-family: 'Inter', sans-serif;
@@ -35,10 +37,12 @@ function AgentDashboard() {
 
         /* Main Content Area */
         .main-col {
+          margin-left: 256px;  /* ← Add this for sidebar */
+          margin-top: 64px;    /* ← Add this for header */
           flex: 1;
           display: flex;
           flex-direction: column;
-          height: 100%;
+          height: calc(100vh - 64px);  /* ← Subtract header height */
           overflow: hidden;
         }
 
@@ -47,6 +51,7 @@ function AgentDashboard() {
           flex: 1;
           overflow-y: auto;
           padding: 32px;
+          background-color: var(--color-bg-light);
         }
 
         /* Page Header */

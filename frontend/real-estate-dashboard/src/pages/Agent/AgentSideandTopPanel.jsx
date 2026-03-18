@@ -10,14 +10,14 @@ function AgentSideAndTopPanel() {
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-        .agent-panel {
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
           font-family: 'Inter', sans-serif;
-          --color-primary: #135bec;
-          --text-slate-500: #64748b;
-          --text-slate-600: #475569;
-          --text-slate-700: #334155;
-          --border-slate-200: #e2e8f0;
-          --bg-white: #ffffff;
         }
 
         .material-icons {
@@ -27,12 +27,15 @@ function AgentSideAndTopPanel() {
         /* Sidebar */
         .sidebar {
           width: 256px;
-          flex-shrink: 0;
-          border-right: 1px solid var(--border-slate-200);
-          background-color: var(--bg-white);
+          position: fixed;
+          left: 0;
+          top: 0;
+          height: 100vh;
+          border-right: 1px solid #e2e8f0;
+          background-color: #ffffff;
           display: flex;
           flex-direction: column;
-          height: 100vh;
+          z-index: 100;
         }
 
         .sidebar-inner {
@@ -41,6 +44,7 @@ function AgentSideAndTopPanel() {
           flex-direction: column;
           gap: 32px;
           height: 100%;
+          overflow-y: auto;
         }
 
         /* Brand */
@@ -50,7 +54,7 @@ function AgentSideAndTopPanel() {
           gap: 12px;
         }
         .brand-icon-box {
-          background-color: var(--color-primary);
+          background-color: #135bec;
           width: 40px;
           height: 40px;
           border-radius: 8px;
@@ -66,7 +70,7 @@ function AgentSideAndTopPanel() {
           letter-spacing: -0.025em;
         }
         .brand-subtitle {
-          color: var(--text-slate-500);
+          color: #64748b;
           font-size: 12px;
           font-weight: 500;
           margin-top: 2px;
@@ -78,7 +82,6 @@ function AgentSideAndTopPanel() {
           flex-direction: column;
           gap: 4px;
           flex-grow: 1;
-          overflow-y: auto;
         }
         .nav-item {
           display: flex;
@@ -86,7 +89,7 @@ function AgentSideAndTopPanel() {
           gap: 8px;
           padding: 6px 10px;
           border-radius: 8px;
-          color: var(--text-slate-600);
+          color: #475569;
           cursor: pointer;
           text-decoration: none;
           transition: background-color 0.2s;
@@ -96,7 +99,7 @@ function AgentSideAndTopPanel() {
         }
         .nav-item.active {
           background-color: rgba(19, 91, 236, 0.1);
-          color: var(--color-primary);
+          color: #135bec;
         }
         .nav-item p {
           font-size: 13px;
@@ -124,14 +127,18 @@ function AgentSideAndTopPanel() {
 
         /* Top Header */
         .top-header {
+          position: fixed;
+          left: 256px;
+          right: 0;
+          top: 0;
           height: 64px;
           display: flex;
           align-items: center;
           justify-content: space-between;
           padding: 0 32px;
-          background-color: var(--bg-white);
-          border-bottom: 1px solid var(--border-slate-200);
-          z-index: 10;
+          background-color: #ffffff;
+          border-bottom: 1px solid #e2e8f0;
+          z-index: 50;
         }
 
         /* Search */
@@ -174,7 +181,7 @@ function AgentSideAndTopPanel() {
         .icon-btn {
           position: relative;
           padding: 8px;
-          color: var(--text-slate-500);
+          color: #64748b;
           background: none;
           border: none;
           border-radius: 8px;
@@ -192,7 +199,7 @@ function AgentSideAndTopPanel() {
           height: 8px;
           background-color: #ef4444;
           border-radius: 50%;
-          border: 2px solid var(--bg-white);
+          border: 2px solid #ffffff;
         }
 
         /* Profile */
@@ -200,7 +207,7 @@ function AgentSideAndTopPanel() {
           display: flex;
           align-items: center;
           gap: 12px;
-          border-left: 1px solid var(--border-slate-200);
+          border-left: 1px solid #e2e8f0;
           padding-left: 24px;
         }
         .profile-info {
@@ -214,7 +221,7 @@ function AgentSideAndTopPanel() {
         }
         .profile-role {
           font-size: 12px;
-          color: var(--color-primary);
+          color: #135bec;
           font-weight: 500;
         }
         .avatar-container {
@@ -243,139 +250,137 @@ function AgentSideAndTopPanel() {
           width: 12px;
           height: 12px;
           background-color: #22c55e;
-          border: 2px solid var(--bg-white);
+          border: 2px solid #ffffff;
           border-radius: 50%;
         }
       `}</style>
 
-      <div className="agent-panel">
-        {/* SIDEBAR */}
-        <aside className="sidebar">
-          <div className="sidebar-inner">
-            {/* Brand Logo */}
-            <div className="brand">
-              <div className="brand-icon-box">
-                <span className="material-symbols-outlined filled-icon" style={{ fontSize: '24px' }}>domain</span>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <h1 className="brand-title">EstateFlow</h1>
-                <p className="brand-subtitle">Enterprise CRM</p>
-              </div>
+      {/* SIDEBAR */}
+      <aside className="sidebar">
+        <div className="sidebar-inner">
+          {/* Brand Logo */}
+          <div className="brand">
+            <div className="brand-icon-box">
+              <span className="material-icons">domain</span>
             </div>
-
-            {/* Nav Links */}
-            <nav className="nav-menu">
-              <Link
-                to="/Agent/AgentDashboard"
-                className={`nav-item ${location.pathname === '/Agent/AgentDashboard' ? 'active' : ''}`}
-              >
-                <span className="material-icons">dashboard</span>
-                <p>Dashboard Overview</p>
-              </Link>
-
-              <Link
-                to="/Agent/MyLeads"
-                className={`nav-item ${location.pathname === '/Agent/MyLeads' ? 'active' : ''}`}
-              >
-                <span className="material-icons">person_search</span>
-                <p>My Leads</p>
-              </Link>
-
-              <Link
-                to="/Agent/property-management"
-                className={`nav-item ${location.pathname === '/Agent/property-management' ? 'active' : ''}`}
-              >
-                <span className="material-icons">house</span>
-                <p>Property Management</p>
-              </Link>
-
-              <Link
-                to="/Agent/site-visits"
-                className={`nav-item ${location.pathname === '/Agent/site-visits' ? 'active' : ''}`}
-              >
-                <span className="material-icons">event_available</span>
-                <p>Site Visits</p>
-              </Link>
-
-              <Link
-                to="/Agent/deals"
-                className={`nav-item ${location.pathname === '/Agent/deals' ? 'active' : ''}`}
-              >
-                <span className="material-icons">handshake</span>
-                <p>Deals</p>
-              </Link>
-
-              <Link
-                to="/Agent/clients"
-                className={`nav-item ${location.pathname === '/Agent/clients' ? 'active' : ''}`}
-              >
-                <span className="material-icons">groups</span>
-                <p>Clients</p>
-              </Link>
-
-              <Link
-                to="/Agent/tasks-followups"
-                className={`nav-item ${location.pathname === '/Agent/tasks-followups' ? 'active' : ''}`}
-              >
-                <span className="material-icons">notification_important</span>
-                <p>Tasks &amp; Follow-ups</p>
-              </Link>
-            </nav>
-
-            {/* Bottom Nav */}
-            <div className="bottom-nav">
-              <Link to="/Agent/settings" className="nav-item">
-                <span className="material-icons">settings</span>
-                <p>Settings</p>
-              </Link>
-              <div className="nav-item logout" onClick={() => console.log('Logout')}>
-                <span className="material-icons">logout</span>
-                <p>Logout</p>
-              </div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <h1 className="brand-title">EstateFlow</h1>
+              <p className="brand-subtitle">Enterprise CRM</p>
             </div>
           </div>
-        </aside>
 
-        {/* TOP HEADER */}
-        <header className="top-header">
-          <div className="search-container">
-            <span className="material-symbols-outlined search-icon">search</span>
-            <input
-              className="search-input"
-              placeholder="Search leads, deals or properties..."
-              type="text"
-            />
+          {/* Nav Links */}
+          <nav className="nav-menu">
+            <Link
+              to="/Agent/AgentDashboard"
+              className={`nav-item ${location.pathname === '/Agent/AgentDashboard' ? 'active' : ''}`}
+            >
+              <span className="material-icons">dashboard</span>
+              <p>Dashboard Overview</p>
+            </Link>
+
+            <Link
+              to="/Agent/MyLeads"
+              className={`nav-item ${location.pathname === '/Agent/MyLeads' ? 'active' : ''}`}
+            >
+              <span className="material-icons">person_search</span>
+              <p>My Leads</p>
+            </Link>
+
+            <Link
+              to="/Agent/property-management"
+              className={`nav-item ${location.pathname === '/Agent/property-management' ? 'active' : ''}`}
+            >
+              <span className="material-icons">house</span>
+              <p>Property Management</p>
+            </Link>
+
+            <Link
+              to="/Agent/site-visits"
+              className={`nav-item ${location.pathname === '/Agent/site-visits' ? 'active' : ''}`}
+            >
+              <span className="material-icons">event_available</span>
+              <p>Site Visits</p>
+            </Link>
+
+            <Link
+              to="/Agent/deals"
+              className={`nav-item ${location.pathname === '/Agent/deals' ? 'active' : ''}`}
+            >
+              <span className="material-icons">handshake</span>
+              <p>Deals</p>
+            </Link>
+
+            <Link
+              to="/Agent/clients"
+              className={`nav-item ${location.pathname === '/Agent/clients' ? 'active' : ''}`}
+            >
+              <span className="material-icons">groups</span>
+              <p>Clients</p>
+            </Link>
+
+            <Link
+              to="/Agent/tasks-followups"
+              className={`nav-item ${location.pathname === '/Agent/tasks-followups' ? 'active' : ''}`}
+            >
+              <span className="material-icons">notification_important</span>
+              <p>Tasks &amp; Follow-ups</p>
+            </Link>
+          </nav>
+
+          {/* Bottom Nav */}
+          <div className="bottom-nav">
+            <Link to="/Agent/settings" className="nav-item">
+              <span className="material-icons">settings</span>
+              <p>Settings</p>
+            </Link>
+            <div className="nav-item logout" onClick={() => console.log('Logout')}>
+              <span className="material-icons">logout</span>
+              <p>Logout</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      {/* TOP HEADER */}
+      <header className="top-header">
+        <div className="search-container">
+          <span className="material-icons search-icon">search</span>
+          <input
+            className="search-input"
+            placeholder="Search leads, deals or properties..."
+            type="text"
+          />
+        </div>
+
+        <div className="header-right">
+          <div className="icon-actions">
+            <button className="icon-btn">
+              <span className="material-icons">notifications</span>
+              <span className="notification-dot"></span>
+            </button>
+            <button className="icon-btn">
+              <span className="material-icons">mail</span>
+            </button>
           </div>
 
-          <div className="header-right">
-            <div className="icon-actions">
-              <button className="icon-btn">
-                <span className="material-symbols-outlined">notifications</span>
-                <span className="notification-dot"></span>
-              </button>
-              <button className="icon-btn">
-                <span className="material-symbols-outlined">mail</span>
-              </button>
+          <div className="profile-section">
+            <div className="profile-info">
+              <p className="profile-name">Vikram Malhotra</p>
+              <p className="profile-role">Senior Sales Agent</p>
             </div>
-
-            <div className="profile-section">
-              <div className="profile-info">
-                <p className="profile-name">Vikram Malhotra</p>
-                <p className="profile-role">Senior Sales Agent</p>
+            <div className="avatar-container">
+              <div className="avatar-box">
+                <img
+                  alt="Profile"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo6jX3PG4qkINm9NA2Oxa7Q_dcmNxXN6pa9B10OD9iPZjkokwI9WwSlTLROI02GcE-KSxnPtAGUrznFuwaSSmL2Q3bqrIJ2B1mNo3dNrP8tLBVG7uB4hZbNk1nOKj0b36TnLyYK7Lvh6EMl7HWbMBOR7DL1-3TLA3WZZurcVA9ylCKMHE8Jh-Vf7XSwikEfoqaRJFQpLOsM1_kBPTUDiBiuaWhAtKUWSpdkfotKGKRsH27eKiAKdJvgRYC1s3jPxlANq8BERAgdjjS"
+                />
               </div>
-              <div className="avatar-container">
-                <div className="avatar-box">
-                  <img
-                    alt="Profile"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo6jX3PG4qkINm9NA2Oxa7Q_dcmNxXN6pa9B10OD9iPZjkokwI9WwSlTLROI02GcE-KSxnPtAGUrznFuwaSSmL2Q3bqrIJ2B1mNo3dNrP8tLBVG7uB4hZbNk1nOKj0b36TnLyYK7Lvh6EMl7HWbMBOR7DL1-3TLA3WZZurcVA9ylCKMHE8Jh-Vf7XSwikEfoqaRJFQpLOsM1_kBPTUDiBiuaWhAtKUWSpdkfotKGKRsH27eKiAKdJvgRYC1s3jPxlANq8BERAgdjjS"
-                  />
-                </div>
-                <span className="status-dot"></span>
-              </div>
+              <span className="status-dot"></span>
             </div>
           </div>
-        </header>
-      </div>
+        </div>
+      </header>
     </>
   );
 }
