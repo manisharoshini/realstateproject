@@ -288,24 +288,24 @@ function AgentSideAndTopPanel() {
             </Link>
 
             <Link
-              to="/Agent/property-management"
-              className={`nav-item ${location.pathname === '/Agent/property-management' ? 'active' : ''}`}
+              to="/Agent/PropertyManagement"
+              className={`nav-item ${location.pathname === '/Agent/PropertyManagement' ? 'active' : ''}`}
             >
               <span className="material-icons">house</span>
               <p>Property Management</p>
             </Link>
 
             <Link
-              to="/Agent/site-visits"
-              className={`nav-item ${location.pathname === '/Agent/site-visits' ? 'active' : ''}`}
+              to="/Agent/SiteVisit"
+              className={`nav-item ${location.pathname === '/Agent/SiteVisit' ? 'active' : ''}`}
             >
               <span className="material-icons">event_available</span>
               <p>Site Visits</p>
             </Link>
 
             <Link
-              to="/Agent/deals"
-              className={`nav-item ${location.pathname === '/Agent/deals' ? 'active' : ''}`}
+              to="/Agent/Deals"
+              className={`nav-item ${location.pathname === '/Agent/Deals' ? 'active' : ''}`}
             >
               <span className="material-icons">handshake</span>
               <p>Deals</p>
